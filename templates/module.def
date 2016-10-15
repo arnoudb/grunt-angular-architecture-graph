@@ -3,6 +3,7 @@ digraph dependencies {
 
 
     node[shape="{1}"]
+
     "{{= it.name }}"[label="{{= it.name }}", color=1]
 
     {{~it.modules :dep}}
@@ -12,11 +13,11 @@ digraph dependencies {
 
 
     node[shape="{2}"]
+
     {{~it.providers :provider}}
       "{{= provider.name }}"[label="{{= provider.name }}", fillcolor=2]
       "{{= it.name }}" -> "{{= provider.name }}"
     {{~}}
-
 
     {{~it.controllers :controller}}
       "{{= controller.name }}"[label="{{= controller.name }}", color=4]
@@ -33,7 +34,9 @@ digraph dependencies {
       "{{= it.name }}" -> "{{= factory.name }}"
     {{~}}
 
+
     node[shape="{3}"]
+
     {{~it.filters :filter}}
       "{{= filter.name }}"[label="{{= filter.name }}", color=7]
       "{{= it.name }}" -> "{{= filter.name }}"
@@ -44,15 +47,14 @@ digraph dependencies {
       "{{= it.name }}" -> "{{= directive.name }}"
     {{~}}
 
-
-
-
-
-
-
+    {{~it.components :component}}
+      "{{= component.name }}"[label="{{= component.name }}", color=3]
+      "{{= it.name }}" -> "{{= component.name }}"
+    {{~}}
 
 
     node[shape="{2}",style="filled", color=9]
+
     {{~it.providers :provider}}
       {{~provider.deps :dep}}
         "{{= dep }}"[label="{{= dep }}"]
@@ -67,6 +69,12 @@ digraph dependencies {
       {{~}}
     {{~}}
 
+    {{~it.components :component}}
+      {{~component.deps :dep}}
+        "{{= dep }}"[label="{{= dep }}"]
+        "{{= dep }}" -> "{{= component.name }}"
+      {{~}}
+    {{~}}
 
     {{~it.controllers :controller}}
       {{~controller.deps :dep}}
@@ -95,6 +103,4 @@ digraph dependencies {
         "{{= dep }}" -> "{{= filter.name }}"
       {{~}}
     {{~}}
-
-
 }
