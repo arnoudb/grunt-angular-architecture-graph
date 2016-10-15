@@ -44,6 +44,7 @@
   ],
   "dependencies": {
     "angular-architecture-graph": "0.2.3",
+    "angular-architecture-graph": "https://github.com/arnoudb/angular-architecture-graph.git#5dbf2d6",
     "grunt-graphviz": "^0.1.1",
     "dot": "^1.0.2"
   }
