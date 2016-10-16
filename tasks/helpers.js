@@ -131,6 +131,8 @@ module.exports = function (grunt) {
       // finally, add this diagram's config
       // to the graphviz tasks config object
       config.graphviz.target.files[dest + "/png" + diagram + ".png"] = dest + "/dot" + diagram + ".dot";
+      config.graphviz.target.files[dest + "/pdf" + diagram + ".pdf"] = dest + "/dot" + diagram + ".dot";
+      config.graphviz.target.files[dest + "/xdot" + diagram + ".xdot"] = dest + "/dot" + diagram + ".dot";
     });
 
     // Add configuration and run graphviz task
