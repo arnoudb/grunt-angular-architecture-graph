@@ -9,7 +9,7 @@ test:
   - clean
   - angular_architecture_graph
   - nodeunit
+  - mochaTest:test
 
 linters:
-  # - jshint
   - eslint
