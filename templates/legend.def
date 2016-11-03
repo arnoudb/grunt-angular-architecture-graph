@@ -6,8 +6,8 @@ digraph dependencies {
 
     node[shape="{2}"]
     "legend.provider"   [label="Providers", color=2]
-    "legend.run"        [label="Providers", color=2]
-    "legend.config"     [label="Providers", color=2]
+    "legend.runs"       [label="Providers", color=2]
+    "legend.configs"    [label="Providers", color=2]
     "legend.controllers"[label="Controllers", color=4]
     "legend.services"   [label="Services", color=5]
     "legend.factories"  [label="Factories", color=6]
