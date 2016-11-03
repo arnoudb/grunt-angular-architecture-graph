@@ -148,7 +148,7 @@ module.exports = function (grunt) {
   function generateLegendGraph (files) {
     var legendResult = templates.legendTemplate();
 
-    //grunt.file.write(files.dest + "/dot/legend.dot", legendResult);
+    grunt.file.write(files.dest + "/dot/legend.dot", legendResult);
   }
 
   function generateAllGraph (angular, files) {
@@ -156,19 +156,21 @@ module.exports = function (grunt) {
       modules: angular.modules
     });
 
-    //grunt.file.write(files.dest + "/dot/all.dot", allResult);
+    grunt.file.write(files.dest + "/dot/all.dot", allResult);
   }
 
   function generateModulesGraph (angular, files) {
     var modulesResult = templates.modulesTemplate({
         modules: angular.modules
     });
-    //grunt.file.write(files.dest + "/dot/modules.dot", modulesResult);
+
+    grunt.file.write(files.dest + "/dot/modules.dot", modulesResult);
   }
 
   function generateModuleGraph (module, files) {
     var moduleResult = templates.moduleTemplate(module);
-    //grunt.file.write(files.dest + "/dot/modules/" + module.name + ".dot", moduleResult);
+
+    grunt.file.write(files.dest + "/dot/modules/" + module.name + ".dot", moduleResult);
   }
 
 
