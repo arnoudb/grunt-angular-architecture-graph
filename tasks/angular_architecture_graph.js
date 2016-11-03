@@ -39,9 +39,12 @@ module.exports = function(grunt) {
                 // 4. Generate diagram files
                 Helpers.renderDotFiles(file);
 
-                done();
+                //done();
 
            }, 300);
         });
+
+        setTimeout(done, 2000);
+
     });
 };
