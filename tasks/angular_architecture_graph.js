@@ -13,6 +13,7 @@ module.exports = function(grunt) {
     var Helpers = require("./helpers")(grunt);
 
     grunt.registerMultiTask("angular_architecture_graph", "Create graphs of your angular projects using angular-architecture-graph.", function() {
+        var done = this.async();
         var options = this.options({
             hideAngularServices: true,
             shapeModules: "component",
@@ -20,9 +21,6 @@ module.exports = function(grunt) {
             shapeDirectives: "cds",
             colorScheme: "paired12"
         });
-
-
-        var done = this.async();
 
         Helpers.preprocessTemplates(options);
 
@@ -33,8 +31,7 @@ module.exports = function(grunt) {
             // 2. Get codebase graph using angular-architecture graph
             var codebaseArchitecture = Helpers.analyseFiles(parsedFiles, options);
 
-            //sleep(100)
-
+            // give the eval some time otherwise the function.$injects are not available yet
             setTimeout(function() {
                 // 3. Generate .dot files
                 Helpers.generateGraphFiles(codebaseArchitecture, file);
@@ -42,9 +39,9 @@ module.exports = function(grunt) {
                 // 4. Generate diagram files
                 Helpers.renderDotFiles(file);
 
-           }, 1000);
-        });
+                done();
 
-        setTimeout(done, 2000);
+           }, 300);
+        });
     });
 };
