@@ -148,7 +148,7 @@ module.exports = function (grunt) {
   function generateLegendGraph (files) {
     var legendResult = templates.legendTemplate();
 
-    grunt.file.write(files.dest + "/dot/legend.dot", legendResult);
+    //grunt.file.write(files.dest + "/dot/legend.dot", legendResult);
   }
 
   function generateAllGraph (angular, files) {
