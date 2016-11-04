@@ -43,10 +43,8 @@ module.exports = function(grunt) {
             }, 1);
         });
 
-        //setTimeout(function() {
-            done();
-        //    console.log('done!');
-        //}, 5000);
+        //needed timeout?
+        done();
 
     });
 };
