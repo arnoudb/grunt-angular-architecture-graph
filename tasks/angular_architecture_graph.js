@@ -33,18 +33,20 @@ module.exports = function(grunt) {
 
             // give the eval some time otherwise the function.$injects are not available yet
             setTimeout(function() {
+
                 // 3. Generate .dot files
                 Helpers.generateGraphFiles(codebaseArchitecture, file);
 
                 // 4. Generate diagram files
                 Helpers.renderDotFiles(file);
 
-                //done();
-
-           }, 300);
+            }, 1);
         });
 
-        setTimeout(done, 2000);
+        //setTimeout(function() {
+            done();
+        //    console.log('done!');
+        //}, 5000);
 
     });
 };

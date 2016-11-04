@@ -34,6 +34,16 @@ digraph dependencies {
       "{{= it.name }}" -> "{{= factory.name }}"
     {{~}}
 
+    {{~it.runs :run}}
+      "{{= run.name }}"[label="{{= run.name }}", color=7]
+      "{{= it.name }}" -> "{{= run.name }}"
+    {{~}}
+
+    {{~it.configs :config}}
+      "{{= config.name }}"[label="{{= config.name }}", color=7]
+      "{{= it.name }}" -> "{{= config.name }}"
+    {{~}}
+
 
     node[shape="{3}"]
 
@@ -101,6 +111,20 @@ digraph dependencies {
       {{~filter.deps :dep}}
         "{{= dep }}"[label="{{= dep }}"]
         "{{= dep }}" -> "{{= filter.name }}"
+      {{~}}
+    {{~}}
+
+    {{~it.configs :config}}
+      {{~config.deps :dep}}
+        "{{= dep }}"[label="{{= dep }}"]
+        "{{= dep }}" -> "{{= config.name }}"
+      {{~}}
+    {{~}}
+
+   {{~it.runs :run}}
+      {{~run.deps :dep}}
+        "{{= dep }}"[label="{{= dep }}"]
+        "{{= dep }}" -> "{{= run.name }}"
       {{~}}
     {{~}}
 }
